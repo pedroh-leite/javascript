@@ -101,7 +101,7 @@
       console.log(johnBmi)
 
       let markHigherBmi = (markBmi>johnBmi)
-      console.log(markHigherBmi)*/
+      console.log(markHigherBmi)
 
       const firstName = "Pedro";
       const job = "programmer";
@@ -124,6 +124,42 @@
         multiple 
         lines`)
 
+        const age = 19;
+
+        if(age >= 18) {
+          console.log('Sara can start driving license')
+        } else{
+          const yearsLeft = 18 - age
+          console.log(`Sara is too young. Wait another ${yearsLeft} years`)
+        }
+
+        const birthYear = 2003;
+        let century;
+        if(birthYear <= 2000){
+          century = 20;
+        } else {
+          century = 21
+        }
+        console.log(century)*/
+
+        const markWeight = 78
+        const johnWeight = 92
+        const markHeight = 1.69
+        const johnHeight = 1.95
+      
+
+        const markBmi = markWeight / (markHeight * markHeight)
+        console.log(markBmi)
+
+        const johnBmi = johnWeight / (johnHeight * johnHeight)
+        console.log(johnBmi)
+
+        console.log(markBmi, johnBmi)
+        if(markBmi > johnBmi){
+          console.log(`Mark's BMI (${markBmi}) is higher than John BMI (${johnBmi})`)
+        } else {
+          console.log(`John's BMI (${johnBmi}) is higher than Mark BMI (${markBmi})`)
+        }
 
 
 
