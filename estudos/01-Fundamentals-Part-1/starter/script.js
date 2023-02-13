@@ -140,7 +140,7 @@
         } else {
           century = 21
         }
-        console.log(century)*/
+        console.log(century)
 
         const markWeight = 78
         const johnWeight = 92
@@ -160,6 +160,96 @@
         } else {
           console.log(`John's BMI (${johnBmi}) is higher than Mark BMI (${markBmi})`)
         }
+        //Type conversion
+        const inputYear = "1991";
+        console.log (Number(inputYear), inputYear);
+        console.log (Number(inputYear) + 18);
+
+        console.log(Number("Jonas"));
+        console.log(typeof NaN);
+
+        console.log(String(23), 23)
+
+        //Type coercion
+        console.log("I'm " + 23 + " years old");
+        console.log("23" - "10" - 3);
+        console.log("23" * "2");
+
+        let n =  "1" + 1;
+        n = n - 1;
+        console.log(n)
+
+        console.log(Boolean(0));
+        console.log(Boolean(undefined));
+        console.log(Boolean("Pedro"));
+        console.log(Boolean({}));
+        console.log(Boolean(""));
+
+        const money = 0;
+        if(money){
+          console.log("Don't spend it all")
+        } else {
+          console.log("You should get a job!")
+        }
+
+        let height = 123;
+        if (height){
+          console.log("Height is defined!")
+        } else{
+          console.log("Height is Undefined")
+        }
+
+        const age = "18"
+        if(age === 18) console.log("You just became a Adult (strict)");
+
+        if(age == 18) console.log("You just became a Adult (loose)");
+
+        const favourite = Number (prompt("What's your favroite number?"));
+        console.log(favourite);
+        console.log(typeof favourite);
+
+        if(favourite === 23) {
+          console.log("cool! 23 Is an amazing numeber")
+        } else if(favourite === 7 ){
+          console.log("7 is also a cool number")
+        } else if(favourite === 9 ){
+          console.log("9 is also a cool number")
+        } 
+        else {
+          console.log("Number is not 23 or 9 or 7")
+        }
+
+        if(favourite !== 23){
+          console.log("Why not 23?");*/
+
+        const driversLicense = true // A
+        const goodVision = true //B
+
+        console.log(driversLicense && goodVision);
+        console.log(driversLicense || goodVision);
+        console.log(!driversLicense);
+
+        // if(driversLicense && goodVision){
+        //   console.log("Sarah is able to drive")
+        // } else{
+        //   console.log("Someone else should drive")
+        // }
+
+        const isTired = false //C
+        console.log(driversLicense && goodVision && isTired);
+
+        if(driversLicense && goodVision && !isTired){
+          console.log("Sarah is able to drive")
+        } else {
+          console.log("Someone else should drive")
+        }
+
+
+
+        
+        
+
+
 
 
 
