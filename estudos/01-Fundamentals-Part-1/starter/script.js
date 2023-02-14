@@ -220,7 +220,7 @@
         }
 
         if(favourite !== 23){
-          console.log("Why not 23?");*/
+          console.log("Why not 23?");
 
         const driversLicense = true // A
         const goodVision = true //B
@@ -244,6 +244,54 @@
           console.log("Someone else should drive")
         }
 
+        const day = "saturday";
+
+        switch(day) {
+          case "monday": 
+            console.log("Plan course structure");
+            console.log("Go to coding meetup");
+          break;
+          case "tuesday":
+            console.log("Prepare theory videos");
+          break;
+          case "wednesday":
+          case "thursday":
+            console.log("Write code examples");
+          break;
+          case "friday":
+            console.log("Record videos");
+          break;
+          case "saturday":
+          case "Sunday":
+            console.log("Enjoy the weekend");
+            break;   
+        }
+
+        3 + 4
+        1991
+        true && false && !false
+
+        const me = "Peo"
+        console.log(`I'm ${2023 - 2003} years old ${me}`)*/
+
+         const age = 19;
+        // age>= 18 ? console.log("I like drink wine") :
+        // console.log("I like drink water");
+
+        const drink = age>= 18 ? "wine" : "water";
+        console.log(drink)
+
+        let drink2;
+
+        if (age >= 18){
+          drink2 = "wine";
+        } else {
+          drink2 = "water";
+        }
+
+        console.log(drink2)
+
+        console.log(`I like to drink ${drink}`)
 
 
         
