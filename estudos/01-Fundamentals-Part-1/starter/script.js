@@ -272,7 +272,7 @@
         true && false && !false
 
         const me = "Peo"
-        console.log(`I'm ${2023 - 2003} years old ${me}`)*/
+        console.log(`I'm ${2023 - 2003} years old ${me}`)
 
          const age = 19;
         // age>= 18 ? console.log("I like drink wine") :
@@ -291,7 +291,17 @@
 
         console.log(drink2)
 
-        console.log(`I like to drink ${drink}`)
+        console.log(`I like to drink ${drink}`)*/
+
+        let bill = 275
+        let tip1 = (bill * 15) / 100
+        let tip2 = (bill * 20) / 100
+
+        console.log(bill)
+        console.log(tip1, tip2)
+
+        bill >=50 && bill <=300 ? console.log(`The bill  was ${bill} the tip was ${tip1}, and the total value ${bill+tip1}`): console.log(`The bill  was ${bill} the tip was ${tip2}, and the total value ${bill+tip2}`);
+        
 
 
         
