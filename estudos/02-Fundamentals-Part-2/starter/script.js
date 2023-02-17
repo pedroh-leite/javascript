@@ -4,7 +4,7 @@
 const passTest = true;
 
 if(passTest) hasDriversLicense = true;
-if(hasDriversLicense) console.log("I can drive")*/
+if(hasDriversLicense) console.log("I can drive")
 
 function logger(){
     console.log("My name is Peter")
@@ -30,3 +30,78 @@ console.log(appleOrangeJuice)
 
 const orangeJuice = fruitProcessor(0, 5)
 console.log(orangeJuice)
+
+// Declaration Function
+function calcAge1(birthYear) {
+    return 2037 - birthYear;
+}
+
+const age1 = calcAge1(2003);
+console.log(age1);
+
+
+//Expression Function
+const calcAge2 = function(birthYear) {
+    return 2037 - birthYear;
+}
+
+const age2 = calcAge2(2003)
+console.log(age1, age2)
+
+//Arrow function
+const calcAge3 = birthYear => 2037 - birthYear;
+ const age3 = calcAge3(2003)
+ console.log(age3)
+
+ const yearsUntilRetirement = (birthYear, firstName) => {
+    const age = 2037 - birthYear
+    const retirement = 65 - age
+    //return retirement
+    return `${firstName} retires in ${retirement} years`
+ }
+
+ console.log(yearsUntilRetirement(2003, "Pedro"));
+ console.log(yearsUntilRetirement(1993, "Sasa"));
+
+function cutFruitsPieces(fruit){
+    return fruit * 3;
+}
+
+ function fruitProcessor(apples, oranges) {
+    const applePieces = cutFruitsPieces(apples);
+    const orangePieces = cutFruitsPieces(oranges);
+    
+    console.log(apples, oranges)
+    const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
+    return juice
+}
+
+console.log(fruitProcessor(2, 3));*/
+
+const calcAge = function(birthYear){
+    return 2037 - birthYear;
+}
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+    const age = calcAge(birthYear)
+    const retirement = 65 - age
+
+    if(retirement>0) {
+        console.log(`${firstName} retires in ${retirement} years`)
+        return retirement
+    } else {
+        console.log(`${firstName}  has already retired`)
+        return -1
+    }
+
+    return retirement
+ }
+
+ console.log(yearsUntilRetirement(2003, "Pedro"));
+ console.log(yearsUntilRetirement(1950, "Sasa"));
+
+
+
+
+
+
