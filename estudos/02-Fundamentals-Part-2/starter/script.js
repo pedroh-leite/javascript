@@ -76,7 +76,7 @@ function cutFruitsPieces(fruit){
     return juice
 }
 
-console.log(fruitProcessor(2, 3));*/
+console.log(fruitProcessor(2, 3));
 
 const calcAge = function(birthYear){
     return 2037 - birthYear;
@@ -99,6 +99,106 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 
  console.log(yearsUntilRetirement(2003, "Pedro"));
  console.log(yearsUntilRetirement(1950, "Sasa"));
+
+const calcAverage = (a,b,c) => (a + b + c) / 3;
+console.log(calcAverage(3, 4, 5));
+
+//teste 1
+let scoreDolphins = calcAverage(44, 23, 71);
+let scoreKoalas = calcAverage(65, 54, 49)
+console.log (scoreDolphins, scoreKoalas)
+
+const checkWinner = function(avgDolphins, avgKoalas){
+    if(avgDolphins >= 2* avgKoalas){
+        console.log(`Dolphins Win (${avgDolphins} vs ${avgKoalas})`)
+    } else if(avgKoalas >= 2* avgDolphins){
+        console.log(`Koalas Win (${avgKoalas} vs ${avgDolphins})`)
+    } else {
+        console.log(`No team wins`)
+    }
+}
+
+checkWinner(scoreDolphins, scoreKoalas)
+
+checkWinner(576, 111)
+
+//teste 2
+scoreDolphins = calcAverage(85, 54, 41);
+scoreKoalas = calcAverage(23, 34, 27);
+console.log (scoreDolphins, scoreKoalas);
+checkWinner(scoreDolphins, scoreKoalas);
+
+const friend1 = "Pepe";
+const friend2 = "Peo";
+const friend3 = "Pe";
+
+const friends = ["Pepe", "Peo", "Pe"];
+console.log(friends);
+
+const ys = new Array(2003, 2004, 2005, 2006);
+
+console.log(friends[0]);
+console.log(friends[2])
+
+console.log(friends.length)
+console.log(friends [friends.length - 1]);
+
+friends[2] = "Pedrão";
+console.log(friends);
+
+const firstName = "Peo";
+const peo = [firstName, "Leite", 2037 - 2003, "Programmer", friends];
+console.log(peo);
+console.log(peo.length)
+
+
+//exercise
+const calcAge = function(birthYear) {
+    return 2037 - birthYear;
+}
+const years = [2003, 2004, 2005, 2006, 2007];
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length-1]);
+console.log(age1, age2, age3);
+
+const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length-1])];
+console.log(ages)
+
+const friends = ["Pepe", "Peo", "Pe"];
+
+// Add elements
+const newLength = friends.push("Pedrão");
+console.log(friends);
+console.log(newLength)
+
+friends.unshift("Peozinho");
+console.log(friends)
+
+//Remove elements
+friends.pop();
+const popped = friends.pop();
+console.log(popped)
+console.log(friends)
+
+friends.shift();
+console.log(friends)
+
+console.log(friends.indexOf("Peo"))
+console.log(friends.indexOf("Henrique"))
+
+console.log(friends.includes("Peo"))
+console.log(friends.includes("Henrique"))*/
+
+
+
+
+
+
+
+
+
 
 
 
