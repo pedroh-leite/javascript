@@ -189,7 +189,71 @@ console.log(friends.indexOf("Peo"))
 console.log(friends.indexOf("Henrique"))
 
 console.log(friends.includes("Peo"))
-console.log(friends.includes("Henrique"))*/
+console.log(friends.includes("Henrique"))
+
+const calcTip = function(bill){
+return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+//const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+const bills = [125, 555, 44];
+const tip = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
+console.log(bills, tip);
+
+const pedroArray = [
+    "Pedro",
+    "Leite",
+    2037 - 2003,
+    "Programmer",
+    ["Pepe", "Peo", "Pe"]
+];
+
+const pedro = {
+    firstName: "Pedro",
+    lastName: "Leite",
+    age: 2037 - 2003,
+    job: "Programmer",
+    friends: ["Pepe", "Peo", "Pe"]
+}*/
+
+const pedro = {
+    firstName: "Pedro",
+    lastName: "Leite",
+    age: 2037 - 2003,
+    job: "Programmer",
+    friends: ["Pepe", "Peo", "Pe"]
+};
+console.log(pedro);
+
+console.log(pedro.lastName);
+
+console.log(pedro["lastName"]);
+
+const nameKey = "Name";
+console.log(pedro["first" + nameKey]);
+console.log(pedro["last" + nameKey]);
+
+//console.log(pedro."last" + nameKey)
+
+const interestedIn = prompt("What do you want to know about Pedro? Choose between firstName, lastName, age, job, and friends");
+
+if(pedro[interestedIn]){
+    console.log(pedro [interestedIn]);
+} else {
+    console.log("Wrong request! Choose between firstName, lastName, age, job, and friends")
+}
+
+pedro.location = "São Paulo";
+pedro["instagram"] = "@pedrxleite";
+
+console.log(pedro)
+
+//Challenge
+console.log(`${pedro.firstName} has ${pedro.friends.length} friends and his best friend is called ${pedro.friends[0]}`);
+
+
+
 
 
 
