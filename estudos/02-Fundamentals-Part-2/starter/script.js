@@ -215,7 +215,7 @@ const pedro = {
     age: 2037 - 2003,
     job: "Programmer",
     friends: ["Pepe", "Peo", "Pe"]
-}*/
+}
 
 const pedro = {
     firstName: "Pedro",
@@ -251,6 +251,80 @@ console.log(pedro)
 
 //Challenge
 console.log(`${pedro.firstName} has ${pedro.friends.length} friends and his best friend is called ${pedro.friends[0]}`);
+
+const pedro = {
+    firstName: "Pedro",
+    lastName: "Leite",
+    birthYear: 2003,
+    job: "Programmer",
+    friends: ["Pepe", "Peo", "Pe"],
+    hasDriverLicense: false, 
+
+    // calcAge: function(birthYear){
+    //     return 2037 - birthYear;
+    // }
+
+    // calcAge: function(){
+    //     //console.log(this);
+    //      return 2037 - this.birthYear;
+    //  }
+
+    calcAge: function(){
+        this.age = 2037 - this.birthYear;
+         return this.age;
+     },
+    }
+
+//      getSummary: function() {
+//         return `${this.firstName} is a ${this.calcAge()}-years old ${pedro.job} and he has ${this.hasDriverLicense ? "a" : "no"} drivers license`
+//      }
+// };
+
+
+
+console.log(pedro.calcAge());
+
+console.log(pedro.age);
+
+
+//console.log(pedro.getSummary())
+
+ const mark = {
+     completeName: "Mark Miller",
+     mass: 78 ,
+     height: 1.69,
+
+     calcBMI: function(){
+         this.bmi = this.mass / (this.height * this.height)
+         return this.bmi;
+     },
+ }
+
+ mark.calcBMI()
+
+ const john = {
+    completeName: "John Smith",
+     mass: 92 ,
+     height: 1.95,
+
+     calcBMI: function(){
+         this.bmi = this.mass / (this.height * this.height)
+         return this.bmi;
+     },
+ }
+
+ john.calcBMI()
+
+
+ console.log(mark.bmi, john.bmi)
+
+
+if(mark.bmi > john.bmi) {
+    console.log(`${mark.completeName} BMI ${mark.bmi} is higher than ${john.completeName} ${john.bmi}`)
+} else {
+    console.log(`${john.completeName} BMI ${john.bmi} is higher than ${mark.completeName} ${mark.bmi}`)
+}*/
+
 
 
 
