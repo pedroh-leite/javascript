@@ -6,7 +6,7 @@
 
  const calcAge = (birthYear) => 2037 - birthYear;
 
- console.log(calcAge(1991));*/
+ console.log(calcAge(1991));
 
  const data1 = [17, 21, 23];
  const dat2 = [12, 5, -5 , 0, 4];
@@ -21,4 +21,4 @@ const printForeCast = function(arr) {
     console.log(str)
 }
 
-printForeCast(data1);
+printForeCast(data1);*/
