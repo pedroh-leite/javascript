@@ -1,6 +1,6 @@
 'use strict';
 
-/*const modal = document.querySelector(".modal");
+const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnClose = document.querySelector(".close-modal");
 const btnShow = document.querySelectorAll(".show-modal");
@@ -12,7 +12,7 @@ const closeModal = function() {
 }
 
 const openModal = function() {
-    // console.log("Button clicked");
+    console.log("Button clicked");
     modal.classList.remove("hidden");
     overlay.classList.remove("hidden");
 }
@@ -20,7 +20,7 @@ const openModal = function() {
 for(let i = 0; i < btnShow.length; i++) 
     btnShow[i].addEventListener("click", openModal)
 
-btnClose.addEventListener ("click", closeModal);
+/*btnClose.addEventListener ("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
 document.addEventListener("keydown", function(e){
