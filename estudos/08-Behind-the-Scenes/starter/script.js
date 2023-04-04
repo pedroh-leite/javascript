@@ -167,6 +167,58 @@ var addArrow = (a,b) => {
     return a + b
 };
 
-addArrow(2, 5, 8)*/
+addArrow(2, 5, 8)
 
   
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const   me = {
+    name: "Pedro",
+    age: 30,    
+};
+
+const friend = me;
+friend.age = 27;
+console.log("Friend", friend);
+console.log("Me", me);*/
+
+//Primitive types
+let lastName = "Williams";
+let oldLastName = lastName;
+lastName = "Davies";
+console.log(lastName, oldLastName);
+
+//Reference types
+const jessica = {
+    firstName: "Jessica",
+    lastName: "Willias",
+    age: 27,   
+};
+
+const marriedJessica = jessica;
+marriedJessica.lastName = "Davies";
+console.log("Before marriage", jessica,);
+console.log("After marriage", marriedJessica);
+
+//marriedJessica = {}
+
+//Copying objects
+//Reference types
+const jessica2 = {
+    firstName: "Jessica",
+    lastName: "Willias",
+    age: 27,   
+    family: ["Alice", "Bob"]
+};
+
+const jessicaCoopy = Object.assign({}, jessica2);
+jessicaCoopy.lastName = "Davies";
+console.log("Before marriage", jessica2);
+console.log("After marriage", jessicaCoopy);
+
+jessicaCoopy.family.push("Mary");
+jessicaCoopy.family.push("John");
