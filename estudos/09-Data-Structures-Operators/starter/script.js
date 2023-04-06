@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
@@ -37,10 +38,124 @@ const restaurant = {
   },
 
   orderPasta: function(ing1, ing2, ing3) {
-    console.log(`Here is your pasta with ${ing1}, ${ing2}, ${ing3}`);
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
+
+  orderPizza: function(mainIngredient, ...otherIngredient) {
+    console.log(mainIngredient);
+    console.log(otherIngredient)
   }
 
 };
+
+
+
+const rest1 = {
+  name: "Capri",
+  //numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: "Piazza",
+  owner: "Giovanni Rossi",
+};
+
+//OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10; 
+//rest1.numGuests ||= 10;
+//rest2.numGuests ||= 10;
+
+//Nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+//AND assignment operator
+// rest2.owner = rest2.owner && "<Anonymous>";
+// rest1.owner = rest1.owner && "<Anonymous>";
+rest1.owner &&= "<ANONYMOUS>"
+rest2.owner &&= "<ANONYMOUS>"
+
+
+console.log(rest1);
+console.log(rest2);
+
+restaurant.numGuests = 0;
+const guests =  restaurant.numGuests || 10;
+console.log(guests) 
+
+//Nullish: null and undefined (NOT 0 or " ")
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect)
+
+
+console.log("---- OR ----")
+
+//Use ANY data types, return ANY data types, short-circuiting
+console.log(3 || "Pedro");
+console.log("" || "Pedro");
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
+
+restaurant.numGuests = 0;
+const guests1 =  restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1)
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log("---- AND ----");
+
+console.log(0 && "Pedro");
+console.log(7 && "Pedro");
+
+console.log("Hello" && 23 && null && "Pedro");
+
+//Practical example
+if(restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach")
+}
+
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+
+
+
+
+//1 - Destructuring
+
+//SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+//REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu]
+console.log(pizza, risotto, otherFood)
+
+//Objects 
+const {sat, ...weekDays} = restaurant.openingHours;
+console.log(weekDays)
+
+//2 - Functions
+const add = function(...numbers) {
+  let sum = 0;
+  for(let i = 0; i < numbers.length; i++) sum+= numbers[i];
+  console.log(sum)
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
+restaurant.orderPizza("mushrooms");
+
 
 const arr = [7, 8, 9];
 const badNewArray = [1, 2, arr[0], arr[1],arr[2]];
@@ -90,7 +205,7 @@ restaurantCopy.name = "Ristorante roma"
 console.log(restaurantCopy.name)
 console.log(restaurant.name)
 
-/*
+
 //////////////////////////////////////////////////
 //Destructuring objects
 restaurant.orderDelivery({
@@ -166,3 +281,82 @@ console.log(i,j,k);
 //Default values
 const [p=1, q=1, r=1] = [8];
 console.log(p, q, r);*/
+
+
+const game = {
+  team1: "Bayern Munchen",
+  team2: "Borussia dortmund",
+  players: [[
+    "Neuer",
+    "Pavard",
+    "Martinez",
+    "Alaba",
+    "Davies",
+    "Kimmich",
+    "Goretzka",
+    "Coman",
+    "Muller",
+    "Gnabry",
+    "Lewandowski",
+  ],
+  
+  [
+    "Burki",
+    "Schulz",
+    "Hummels",
+    "Akanji",
+    "Hakimi",
+    "Weigl",
+    "Witzel",
+    "Hazard",
+    "Brandt",
+    "Sancho",
+    "Gotze", 
+  ],
+],
+
+  score: "4 x 0",
+  scored: ["Lewandowski", "Gnabry", "Lewandowsni", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.25,
+  },
+
+}
+
+//1.
+const [player1, player2] = game.players;
+console.log(player1, player2 );
+
+//2.
+const [gk, ...fieldPlayers] = player1;
+console.log(gk, fieldPlayers);
+
+//3.
+const allPlayers = [...player1, ...player2];
+console.log(allPlayers);
+
+//4.
+const players1Final = [...player1, "Thiago", "Coutinho", "Perisic"];
+
+//5.
+const {odds: {team1, x: draw, team2}} = game;
+console.log(team1, draw, team2);
+
+//6.
+const printGoal = function (...players) {
+  console.log(players); 
+  console.log(`${players.length} goals were scored`)
+}
+
+//printGoal("Davies", "Muller", "Lewandowski", "Kimmich");
+//printGoal("Davies", "Muller");
+printGoal(...game.scored);
+
+//7.
+team1 < team2 && console.log("Team 1 is more likely to win");
+team1 > team2 && console.log("Team 2 is more likely to win");
+ 
+ 
