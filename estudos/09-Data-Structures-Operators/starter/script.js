@@ -1,9 +1,26 @@
 'use strict';
 
-/*
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+  const weekDays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+  const openingHours = {
+    [weekDays[3]]: {
+      open: 12,
+      close: 22,
+    },
+    
+    [weekDays[4]]: {
+      open: 11,
+      close: 23,
+    },
+    
+    [weekDays[5]]:{
+      open: 0, //Open 24h
+      close: 12 + 12,
+    },
+  };
 
 // Data needed for first part of the section
 const restaurant = {
@@ -12,42 +29,99 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    
-    sat:{
-      open: 0, //Open 24h
-      close: 24,
-    },
-  },
+  
+  //ES6 enhanced  obbject literals
+  openingHours,
 
-  order: function(starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
   },
 
-  orderDelivery: function({starterIndex = 1, mainIndex = 0, time = "20:00", address}) {
+
+
+  orderDelivery({starterIndex = 1, mainIndex = 0, time = "20:00", address}) {
     console.log(`Order received ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
   },
 
-  orderPasta: function(ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
 
-  orderPizza: function(mainIngredient, ...otherIngredient) {
+  orderPizza(mainIngredient, ...otherIngredient) {
     console.log(mainIngredient);
     console.log(otherIngredient)
   }
 
 };
 
+//Property NAMES 
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open ${properties.length} days: `;
+
+for (const day of properties) {
+  openStr += `${day}, `
+}
+
+console.log(openStr)
+
+//Property VALUES
+
+const values = Object.values(openingHours)
+console.log(values);
+
+//Entire object
+const entries = Object.entries(openingHours);
+//console.log(entries);
+
+//[key, value]
+for( const [day, {open, close}] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+/*
+if(restaurant.openingHours && restaurant.openingHours.mon)
+console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours.mon.open);
+
+//With optional chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+//Example
+const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+for(const day of days) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? "closed";
+  console.log(`On ${day}, we open at ${open}`)
+};
+
+//Methods
+
+console.log(restaurant.order?.(0,1) ?? "Method does not exist");
+console.log(restaurant.orderRisotto?.(0,1) ?? "Method does not exist");
+
+
+//Arrays
+ const users = [
+   {names: "Pedro", email: "pedro@leite.com"}];
+//const users = []
+
+  console.log(users[0]?.names ?? "User array empty");
+
+ if (users.length > 0) console.log(users[0].names); else console.log("User array empty");
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for(const item of menu) console.log(item);
+
+for(const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+};
+
+// console.log(...menu.entries());
 
 
 const rest1 = {
@@ -280,9 +354,11 @@ console.log(i,j,k);
 
 //Default values
 const [p=1, q=1, r=1] = [8];
-console.log(p, q, r);*/
+console.log(p, q, r);
 
 
+//////////////////////////////////////////////////
+//Coding chalenge
 const game = {
   team1: "Bayern Munchen",
   team2: "Borussia dortmund",
@@ -357,6 +433,6 @@ printGoal(...game.scored);
 
 //7.
 team1 < team2 && console.log("Team 1 is more likely to win");
-team1 > team2 && console.log("Team 2 is more likely to win");
+team1 > team2 && console.log("Team 2 is more likely to win");*/
  
  
