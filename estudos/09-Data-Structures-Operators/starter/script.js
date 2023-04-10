@@ -54,6 +54,191 @@ const restaurant = {
 
 };
 
+
+
+
+
+
+/*
+const question = new Map([
+  ["Question", "What is the best programming language in the world?"],
+  [1, "C"],
+  [2, "Java"],
+  [3, "JavaScript"],
+  ["correct", 3],
+  [true, "Correct :D"],
+  [false, "Try again :("]
+]);
+
+console.log(question);
+
+//Convert objects to MAPS
+console.log(Object.entries(openingHours))
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+
+//Quiz app
+console.log(question.get("Question"));
+for(const [key, value] of question) {
+  if(typeof key === "number") console.log(`Answer ${key}: ${value}`);
+}
+// const answer = Number (prompt("Your answer"));
+const answer = 3;
+console.log(answer);
+
+console.log(question.get( question.get("correct") === answer));
+
+//Convert map to ARRAY
+console.log([...question]);
+// console.log(question.entries());
+console.log([...question.keys()]);
+console.log([...question.values()]);
+
+
+
+const rest = new Map();
+rest.set("name", "Clasico Italiano");
+rest.set(1, "Firenze, Italy" );
+console.log(rest.set(2, "Lisboa, Portugal"));
+
+rest
+.set("categories", ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+.set("open", 11)
+.set("closed", 23)
+.set(true, "We are open :D")
+.set(false, "We are closed :(")
+
+console.log(rest.get("name"));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 8;
+console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+
+console.log(rest.has("categories"));
+rest.delete(2);
+// rest.clear();
+const arr = [1, 2];
+rest.set(arr, "Test");
+rest.set(document.querySelector("h1"), "Heading")
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr));
+
+const ordersSet = new Set(["Pasta",
+ "Pizza",
+  "Pizza",
+  "Risotto",
+  "Pasta",
+  "Pizza",
+]);
+console.log(ordersSet);
+
+console.log(new Set("Pedro"));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has("Pizza"));
+console.log(ordersSet.has("Bread"));
+ordersSet.add("Garlic bread");
+ordersSet.add("Garlic bread");
+ordersSet.delete("Risotto");
+//ordersSet.clear();
+console.log(ordersSet);
+
+for( const order of ordersSet) console.log(order);
+
+//Example
+
+const staff = [
+  "Waiter",
+  "Chef",
+  "Waiter",
+  "Manager",
+  "Chef",
+  "Waiter"
+];
+const staffUnique =[ ...new Set(staff)];
+console.log(staffUnique);
+console.log(
+  new Set(["Waiter","Chef","Waiter","Manager","Chef","Waiter"]).size
+  );
+
+console.log(new Set("PedroLeite").size )
+
+
+
+
+const game = {
+  team1: "Bayern Munchen",
+  team2: "Borussia dortmund",
+  players: [[
+    "Neuer",
+    "Pavard",
+    "Martinez",
+    "Alaba",
+    "Davies",
+    "Kimmich",
+    "Goretzka",
+    "Coman",
+    "Muller",
+    "Gnabry",
+    "Lewandowski",
+  ],
+  
+  [
+    "Burki",
+    "Schulz",
+    "Hummels",
+    "Akanji",
+    "Hakimi",
+    "Weigl",
+    "Witzel",
+    "Hazard",
+    "Brandt",
+    "Sancho",
+    "Gotze", 
+  ],
+],
+
+  score: "4 x 0",
+  scored: ["Lewandowski", "Gnabry", "Lewandowsni", "Hummels"],
+  date: "Nov 9th, 2037",
+  odd: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+
+};
+
+
+
+// 1.
+for(const [i, player] of game.scored.entries())
+console.log(`Goal ${i + 1}: ${player}`);
+
+//2.
+const odds = Object.values(game.odd)
+let average = 0;
+for(const odd of odds) average += odd;
+  average /= odds.length;
+  console.log(average)
+
+//3.
+for (const [team, odd] of Object.entries(game.odd)) {
+  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`
+  console.log(`Odd of ${teamStr} ${odd}`)
+}
+
+//Odd of victory Bayern Munchen: 1.33
+//Odd of draw: 3.25
+// Odd of victory Borussia Dortmund: 6.5
+
+
+
+
 //Property NAMES 
 const properties = Object.keys(openingHours);
 console.log(properties);
@@ -79,7 +264,7 @@ const entries = Object.entries(openingHours);
 for( const [day, {open, close}] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
-/*
+
 if(restaurant.openingHours && restaurant.openingHours.mon)
 console.log(restaurant.openingHours.mon.open);
 
