@@ -54,6 +54,10 @@ const restaurant = {
 
 };
 
+
+/*
+//////////////////////////////////////
+//Coding chalenge #4
 document.body.append(document.createElement("textarea"));
 document.body.append(document.createElement("button"));
 
@@ -77,19 +81,6 @@ document.querySelector("button").addEventListener("click", function() {
 // delayed_departure
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 ////////////////////////////////////////////////
 //WORKING With Strings Pt. 3
 console.log("a+very+nice+string".split("+"));
