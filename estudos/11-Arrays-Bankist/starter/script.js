@@ -61,7 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-/*
+
 const displayMovements = function(movements) {
   
   containerMovements.innerHTML = " ";
@@ -85,6 +85,15 @@ const displayMovements = function(movements) {
 
 displayMovements(account1.movements);
 
+const createUsername = function(accs){
+  accs.forEach(function(acc){
+    acc.username = acc.owner.toLowerCase().split(" ").map(name => name[0]).join("");
+  }) 
+ };
+
+createUsername(accounts);
+console.log(accounts)
+
 
 
 /////////////////////////////////////////////////
@@ -93,11 +102,11 @@ displayMovements(account1.movements);
 
 
 
-//const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-
+/*
 //SLICE Method
 let arr  = ["a", "b", "c", "d", "e"];
 
@@ -186,7 +195,7 @@ console.log(currenciesUnique);
 currenciesUnique.forEach(function(value, key, map){
   console.log(`${key}: ${value}`)
 })
-*/
+
 
 const checkDogs = function (dogsJulia, dogsKate) {
   const dogsJuliaCorrected = dogsJulia.slice();
@@ -206,3 +215,42 @@ const checkDogs = function (dogsJulia, dogsKate) {
 };
 
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+
+
+
+const euroToDollar = 1.1;
+
+// const movementsUSD = movements.map(function(mov){
+//   return mov * euroToDollar;  
+// });
+
+const movementsUSD = movements.map(mov => 
+  mov * euroToDollar);
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDFor = [];
+for(const mov of movements) movementsUSDFor.push(mov * euroToDollar);
+console.log(movementsUSDFor);   
+
+const movementsDescript = movements.map((mov, i) => 
+  `Movement ${i + 1}: You ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(mov)}`
+)
+
+console.log(movementsDescript)
+*/
+
+const deposits = movements.filter(function(mov, i, arr) {
+  return mov > 0;
+});
+console.log(movements);
+console.log(deposits);
+
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+console.log(depositsFor);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals)
