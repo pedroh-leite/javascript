@@ -89,12 +89,12 @@ const inputClosePin = document.querySelector('.form__input--pin');
     if (daysPassed === 0) return "Today";
     if(daysPassed === 1 ) return "Yesterday";
     if(daysPassed <= 7 ) return `${daysPassed} days ago`;
-    else{
-      const day = `${date.getDate()}`.padStart(2, 0);
-      const month = `${date.getMonth() + 1}`.padStart(2, 0);
-      const year = date.getFullYear();
-      return `${day}/${month}/${year}`;
-    };
+
+      // const day = `${date.getDate()}`.padStart(2, 0);
+      // const month = `${date.getMonth() + 1}`.padStart(2, 0);
+      // const year = date.getFullYear();
+      // return `${day}/${month}/${year}`;
+      return new Intl.DateTimeFormat(locale).format(date)
     
   };
 
@@ -109,7 +109,7 @@ const displayMovements = function (acc, sort = false) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
    const date = new Date(acc.movementsDates[i]);
-   const displayDate = formatMovementDate(date);
+   const displayDate = formatMovementDate(date, acc.locale);
 
     const html = `
     <div class="movements__row">
@@ -180,6 +180,10 @@ updateUI(currentAccount);
 containerApp.style.opacity = 100;
 
 
+//Experimenting API
+
+
+
 
 //Day/month/year
 
@@ -201,13 +205,19 @@ btnLogin.addEventListener('click', function (e) {
     containerApp.style.opacity = 100;
 
     //Create current date and time 
-    const now = new Date();
-    const day = `${now.getDate()}`.padStart(2, 0);
-    const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    const year = now.getFullYear();
-    const hours = `${now.getHours()}`.padStart(2, 0);
-    const minutes = `${now.getMinutes()}`.padStart(2, 0);
-    labelDate.textContent = `${day}/${month}/${year}, ${hours}:${minutes}`;
+    const options = {
+      hour: "numeric",
+      minute: "numeric",
+      day: "numeric",
+      month: "long",
+      year: "2-digit",
+      weekday: "long",
+    }
+
+  // const locale = navigator.language;
+  // console.log(locale)
+    labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(now);
+
 
     //Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -949,7 +959,7 @@ console.log(Date.now());
 
 future.setFullYear(2040);
 console.log(future);
-*/
+
 
 const future = new Date(2037, 10, 19, 15, 23);
 console.log(+future);
@@ -963,3 +973,19 @@ const days1 = calcDaysPassed(
   );
 
 console.log(days1)
+
+
+const num = 3884764.23;
+
+const options = {
+  style: "currency",
+  unit: "celsius",
+  currency: "EUR",
+  //useGrouping: false, 
+}
+
+console.log("US: ", new Intl.NumberFormat("en-US", options).format(num));
+console.log("Germany: ", new Intl.NumberFormat("de-DE", options).format(num));
+console.log("Syria: ", new Intl.NumberFormat("ar-SY", options).format(num));
+console.log(navigator.language, new Intl.NumberFormat(navigator.language, options).format(num));
+*/

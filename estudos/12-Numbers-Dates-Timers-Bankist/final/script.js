@@ -99,12 +99,18 @@ const formatMovementDate = function (date, locale) {
   return new Intl.DateTimeFormat(locale).format(date);
 };
 
-const formatCur = function (value, locale, currency) {
+const formatCur = function(value, locale, currency) {
   return new Intl.NumberFormat(locale, {
-    style: "currency",
-    currency: currency,
+     style: "currency",
+     currency: currency,
   }).format(value);
-};
+}
+
+  
+// const formattedMovements = new Intl.NumberFormat(acc.locale, {
+//   style: "currency",
+//   currency: acc.currency,
+// }).format(mov);
 
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = "";
@@ -119,15 +125,15 @@ const displayMovements = function (acc, sort = false) {
     const date = new Date(acc.movementsDates[i]);
     const displayDate = formatMovementDate(date, acc.locale);
 
-    const formattedMov = formatCur(mov, acc.locale, acc.currency);
-
+    const formattedMov = formatCur(mov, acc.locale, acc.currency) 
+  
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
         <div class="movements__date">${displayDate}</div>
-        <div class="movements__value">${formattedMov}</div>
+        <div class="movements__value">${formattedMovements}</div>
       </div>
     `;
 
@@ -137,6 +143,7 @@ const displayMovements = function (acc, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+
   labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);
 };
 
@@ -184,34 +191,35 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
-const startLogOutTimer = function () {
-  const tick = function () {
+const startLogOutTimer = function (){  
+    const tick = function() {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
     const sec = String(time % 60).padStart(2, 0);
 
-    // In each call, print the remaining time to UI
-    labelTimer.textContent = `${min}:${sec}`;
+      //In each call, print the remaining time to UI
+      labelTimer.textContent = `${min}:${sec}`;
 
-    // When 0 seconds, stop timer and log out user
-    if (time === 0) {
-      clearInterval(timer);
-      labelWelcome.textContent = "Log in to get started";
-      containerApp.style.opacity = 0;
-    }
+      //When 0 seconds, stop timer and logout user
+      if(time === 0) {
+        clearInterval(timer);
+        labelWelcome.textContent = "Log in to get started";
+        containerApp.style.opacity = 0;
+      }
 
-    // Decrease 1s
+    //Decrese 1 second
     time--;
-  };
+  }
 
-  // Set time to 5 minutes
+  //Set time to 5 minutes
   let time = 120;
 
-  // Call the timer every second
+  //Call the timer every second
   tick();
   const timer = setInterval(tick, 1000);
-
+  
   return timer;
-};
+}
+
 
 ///////////////////////////////////////
 // Event handlers
@@ -267,12 +275,13 @@ btnLogin.addEventListener("click", function (e) {
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
 
-    // Timer
-    if (timer) clearInterval(timer);
-    timer = startLogOutTimer();
+      //Timer
+      if(timer) clearInterval(timer);
+    timer = startLogOutTimer()
 
     // Update UI
     updateUI(currentAccount);
+
   }
 });
 
@@ -303,7 +312,7 @@ btnTransfer.addEventListener("click", function (e) {
 
     // Reset timer
     clearInterval(timer);
-    timer = startLogOutTimer();
+    timer =  startLogOutTimer();
   }
 });
 
@@ -316,7 +325,7 @@ btnLoan.addEventListener("click", function (e) {
     amount > 0 &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    setTimeout(function () {
+    setTimeout( function () {
       // Add movement
       currentAccount.movements.push(amount);
 
@@ -626,3 +635,5 @@ setInterval(function () {
   console.log(now);
 }, 1000);
 */
+
+
