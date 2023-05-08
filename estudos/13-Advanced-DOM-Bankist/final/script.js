@@ -257,7 +257,7 @@ const slider = function () {
     if (curSlide === 0) {
       curSlide = maxSlide - 1;
     } else {
-      curSlide--;
+      curSlide--
     }
     goToSlide(curSlide);
     activateDot(curSlide);
