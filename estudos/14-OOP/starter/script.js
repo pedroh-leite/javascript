@@ -191,7 +191,7 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
-*/
+
 
 const PersonProto = {
     calcAge() {
@@ -251,4 +251,27 @@ console.log(ford.speedUS);
  ford.accelerate();
  ford.brake();
  ford.speedUS = 50;
- console.log(ford)
+ console.log(ford);
+ */
+
+ const Person = function(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+ };
+
+ Person.prototype.calcAge = function() {
+    console.log(2037 - this.birthYear);
+ };
+
+ const Student = function(firstName, birthYear, course) {
+    Person.call(this, firstName, birthYear);
+    this.course = course;
+ };
+
+ Student.prototype.introduce = function() {
+    console.log(`My name is ${this.firstName} and i study ${this.course}`);
+ };
+
+ const mike = new Student ("Mike", 2020, "Computer science");
+ console.log(mike);
+ mike.introduce();
